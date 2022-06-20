@@ -4,6 +4,8 @@ import conectarDB from "./config/db.js";
 import verterinarioRoutes from "./routes/veterinariosRoutes.js"
 
 const app = express();
+app.use(express.json())
+
 dotenv.config();
 
 conectarDB();
