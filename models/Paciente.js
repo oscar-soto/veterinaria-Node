@@ -6,13 +6,18 @@ const pacientesSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    propietarios: {
+    propietario: {
       type: String,
       required: true,
     },
     email: {
       type: String,
       required: true,
+    },
+    fecha: {
+      type: Date,
+      required: true,
+      default: Date.now(),
     },
     sintomas: {
       type: String,
