@@ -24,7 +24,8 @@ const registrar = async (req, res) => {
 };
 
 const perfil = (req, res) => {
-  res.json({ msg: "mostrando perfil" });
+  const { veterinario } = req;
+  res.json({ perfil: veterinario });
 };
 
 const confirmar = async (req, res) => {
@@ -65,11 +66,10 @@ const autenticar = async (req, res) => {
   // Revisar el password
   if (await usuario.comprobarPassword(password)) {
     // Autenticar
-    res.json({ token: generarJWT(usuario.id)})
+    res.json({ token: generarJWT(usuario.id) });
   } else {
     const error = new Error("El password es incorrecto");
     return res.status(403).json({ msg: error.message });
   }
-
 };
 export { registrar, perfil, confirmar, autenticar };
