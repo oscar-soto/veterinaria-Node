@@ -8,6 +8,7 @@ import {
   olvidePassword,
   comprobarPassword,
   nuevoPassword,
+  actualizarPerfil
 } from "../controllers/veterinarioController.js";
 
 import checkAuth from "../middleware/authMiddleware.js";
@@ -27,5 +28,6 @@ router
 
 // Area Privada
 router.get("/perfil", checkAuth, perfil);
+router.put("/perfil/:id", checkAuth, actualizarPerfil)
 
 export default router;
